@@ -1,0 +1,27 @@
+<table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">accountNumber</th>
+      <th scope="col">date</th>
+      <th scope="col">loan</th>
+      <th scope="col">payments</th>
+      <th scope="col">interest</th>
+      <th scope="col">income</th>
+      <th scope="col">output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let account of accounts; index as i">
+      <td>{{ account.accountNumber }} </td>
+      <td> {{ account.date }}</td>
+      <td>{{account.loan }}$</td>
+      <td> {{account.payments }}</td>
+      <td> {{account.interest }}%</td>
+      <td> {{account.income }}$</td>
+      <td > - {{account.output }}$</td>
+    </tr> 
+    </tbody>
+  </table>
+
+
+  
