@@ -1,7 +1,19 @@
+<div style="margin-top: 50px;">
+  <div class="row">
+      <div class="col-4">
+          <label >Enter Account Number</label>
+          <input  [(ngModel)]="accountNumber" type="text" class="form-control" placeholder="Enter Account Number">
+      </div>  
+  </div>
+  <div style="margin-top: 10px; color:white">
+      <button mat-raised-button color="accent" (click)="search()">Search</button>
+  </div>
+
+
 <table class="table table-striped">
     <thead>
     <tr>
-      <th scope="col">accountNumber</th>
+      <th scope="col">Account Number</th>
       <th scope="col">date</th>
       <th scope="col">loan</th>
       <th scope="col">payments</th>

@@ -1,14 +1,30 @@
 <p>Add Action</p>
 
 
-<div class="row">
-    <div class="col">
-      <div ngbDropdown class="d-inline-block">
-        <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Chose User</button>
-        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-          <button ngbDropdownItem>Action - 1</button>
-          <button ngbDropdownItem>Another Action</button>
-          <button ngbDropdownItem>Something else is here</button>
-        </div>
+<div style="margin-top: 50px;">
+  <div class="row">
+      <div class="col-4">
+          <label>Enter Account Number</label>
+          <input [(ngModel)]="accountNumber" type="text" class="form-control" placeholder="Enter Account Number">
       </div>
-    </div>
+  </div>
+
+  <div style="padding-top: 30px;">
+      <p> Choose Operation to insert this account </p>
+      <mat-form-field appearance="fill">
+          
+          <mat-label></mat-label>
+          <mat-select [(value)]="selected" >
+              <mat-option *ngFor="let account of accounts" [value]="option">
+                  {{option}}
+              </mat-option>
+          </mat-select>
+      </mat-form-field>
+  </div>
+  
+<!-- <mat-form-field>[accounts]="selected" (insertOpperations)="addOpperation($event)"> </app-operation-form>  -->
+
+</div>
+
+
+
