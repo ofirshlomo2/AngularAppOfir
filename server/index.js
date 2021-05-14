@@ -22,7 +22,22 @@ createConnection();
 app.use("/opp", opperationsRouter)
 
 
+app.get("/searchAccount", async (req, res, next) => {
+    console.log(req.query)
+    const {accountNumber} = req.query
+    try {
+        const result = await accountsModal.find({accountNumber})
+        console.log(result)
+        if (result)
+            return res.json(result)
+        return res.status(400).send("something went wrong...")
 
+    } catch (error) {
+        console.log(error)
+        return res.status(400).send("search failed")
+
+    }
+})
 
 
 app.post("/addOpperation", async (req, res, next) => {
@@ -32,11 +47,11 @@ app.post("/addOpperation", async (req, res, next) => {
         const result = await accountsModal.insertMany([{accountNumber : accountNumber , loan:loan ,payments:payments ,interest:interest ,income:income , output:output}])
         if (result)
             return res.json("add success")
-        return res.status(400).send("something went wrong...")
+        return res.status(400).send("something went wrong")
 
     } catch (error) {
         console.log(error)
-        return res.status(400).send("something went wrong...")
+        return res.status(400).send("add failed")
 
     }
 })
